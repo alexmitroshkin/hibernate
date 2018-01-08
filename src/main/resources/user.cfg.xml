@@ -11,5 +11,10 @@
         <many-to-one name="role" class="example.Role">
             <column name="fkRole" not-null="true" />
         </many-to-one>
+        <one-to-one name="dog" class="example.Dog" />
+        <set name="friends" table="user_friend">
+            <key column="fkUser" not-null="true" />
+            <many-to-many column="fkFriend" class="example.Friend" />
+        </set>
     </class>
 </hibernate-mapping>

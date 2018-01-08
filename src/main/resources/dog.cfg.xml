@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="example">
+    <class name="example.Dog" table="dog">
+        <id name="id" column="pkDog">
+            <generator class="native" />
+        </id>
+        <property name="name" column="name" type="string" />
+        <one-to-one name="user" class="example.User" />
+    </class>
+</hibernate-mapping>

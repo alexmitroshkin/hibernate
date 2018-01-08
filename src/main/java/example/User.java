@@ -1,6 +1,7 @@
 package example;
 
 import java.io.Serializable;
+import java.util.Set;
 
 
 public class User implements Serializable{
@@ -11,6 +12,8 @@ public class User implements Serializable{
     private String firstName;
     private String lastName;
     private Role role;
+    private Dog dog;
+    private Set<Friend> friends;
 
     public User() {
     }
@@ -53,5 +56,21 @@ public class User implements Serializable{
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Dog getDog() {
+        return dog;
+    }
+
+    public void setDog(Dog dog) {
+        this.dog = dog;
+    }
+
+    public Set<Friend> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<Friend> friends) {
+        this.friends = friends;
     }
 }
