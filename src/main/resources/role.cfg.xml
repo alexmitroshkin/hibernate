@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="example">
+    <class name="example.Role" table="role">
+        <id name="id" column="pkRole">
+            <generator class="native" />
+        </id>
+        <property name="title" column="title" type="string" />
+        <set name="users" table="user">
+            <key>
+                <column name="fkRole" not-null="true" />
+            </key>
+            <one-to-many class="example.User" />
+        </set>
+    </class>
+</hibernate-mapping>
