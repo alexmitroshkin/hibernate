@@ -1,13 +1,20 @@
 package annotation;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name="dog")
 public class Dog  implements Serializable{
 
     private static final long serialVersionUID = 782778282365529264L;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pkDog")
     private long id;
+    @Column(name = "name")
     private String name;
+    @OneToOne(mappedBy = "dog")
     private User user;
 
     public Dog() { }

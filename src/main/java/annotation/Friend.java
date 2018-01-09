@@ -1,15 +1,23 @@
 package annotation;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+@Entity
+@Table(name="friend")
 public class Friend implements Serializable {
 
     private static final long serialVersionUID = 8557377721020971606L;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pkFriend")
     private long id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @ManyToMany(mappedBy = "friends")
     private Set<User> users;
 
     public Friend() {}

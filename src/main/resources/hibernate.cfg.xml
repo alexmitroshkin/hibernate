@@ -11,7 +11,9 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
 
         <mapping class="annotation.User" />
-
+        <mapping class="annotation.Role" />
+        <mapping class="annotation.Friend" />
+        <mapping class="annotation.Dog" />
         <!--<mapping resource="user.cfg.xml" />-->
         <!--<mapping resource="role.cfg.xml" />-->
         <!--<mapping resource="dog.cfg.xml" />-->

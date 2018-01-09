@@ -20,9 +20,17 @@ public class User implements Serializable{
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-//    private Role role;
-//    private Dog dog;
-//    private Set<Friend> friends;
+    @ManyToOne
+    @JoinColumn(name = "fkRole")
+    private Role role;
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Dog dog;
+    @ManyToMany
+    @JoinTable (name = "user_friend",
+    joinColumns = {@JoinColumn (name = "fkUser")},
+    inverseJoinColumns = {@JoinColumn (name = "fkFriend")})
+    private Set<Friend> friends;
 
     public User() {
     }
@@ -59,27 +67,27 @@ public class User implements Serializable{
         this.lastName = lastName;
     }
 
-//    public Role getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(Role role) {
-//        this.role = role;
-//    }
-//
-//    public Dog getDog() {
-//        return dog;
-//    }
-//
-//    public void setDog(Dog dog) {
-//        this.dog = dog;
-//    }
-//
-//    public Set<Friend> getFriends() {
-//        return friends;
-//    }
-//
-//    public void setFriends(Set<Friend> friends) {
-//        this.friends = friends;
-//    }
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Dog getDog() {
+        return dog;
+    }
+
+    public void setDog(Dog dog) {
+        this.dog = dog;
+    }
+
+    public Set<Friend> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<Friend> friends) {
+        this.friends = friends;
+    }
 }
