@@ -10,10 +10,15 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <mapping class="annotation.User" />
-        <mapping class="annotation.Role" />
-        <mapping class="annotation.Friend" />
-        <mapping class="annotation.Dog" />
+        <mapping class="model_lesson10.Role" />
+        <mapping class="model_lesson10.User" />
+        <mapping class="model_lesson10.Order" />
+        <mapping class="model_lesson10.Product_Category" />
+        <mapping class="model_lesson10.Product" />
+        <!--<mapping class="annotation.User" />-->
+        <!--<mapping class="annotation.Role" />-->
+        <!--<mapping class="annotation.Friend" />-->
+        <!--<mapping class="annotation.Dog" />-->
         <!--<mapping resource="user.cfg.xml" />-->
         <!--<mapping resource="role.cfg.xml" />-->
         <!--<mapping resource="dog.cfg.xml" />-->
