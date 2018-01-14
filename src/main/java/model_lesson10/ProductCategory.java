@@ -8,19 +8,19 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "product_category")
-public class Product_Category extends Model {
+public class ProductCategory extends Model {
 
     private static final long serialVersionUID = -3815174292031027477L;
 
     @Column(name="title")
     private String title;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name="parent_product_category", referencedColumnName="id")
-    private Product_Category parentProductCategory;
-    @OneToMany(mappedBy = "productCategory")
+    private ProductCategory parentProductCategory;
+    @OneToMany(mappedBy = "productCategory",fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Product> products;
 
-    public Product_Category() {
+    public ProductCategory() {
     }
 
     public String getTitle() {
@@ -31,11 +31,11 @@ public class Product_Category extends Model {
         this.title = title;
     }
 
-    public Product_Category getParentProductCategory() {
+    public ProductCategory getParentProductCategory() {
         return parentProductCategory;
     }
 
-    public void setParentProductCategory(Product_Category parentProductCategory) {
+    public void setParentProductCategory(ProductCategory parentProductCategory) {
         this.parentProductCategory = parentProductCategory;
     }
 
@@ -45,5 +45,14 @@ public class Product_Category extends Model {
 
     public void setProducts(Set<Product> products) {
         this.products = products;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductCategory{" +
+                "title='" + title + '\'' +
+                ", parentProductCategory=" + (parentProductCategory == null ? "null" : parentProductCategory.toString()) +
+//                ", products=" + (!products.isEmpty() ? products.toString() : "null") +
+                '}';
     }
 }

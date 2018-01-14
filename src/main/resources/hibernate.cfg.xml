@@ -8,12 +8,12 @@
         <property name="connection.password">root</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
-
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
         <mapping class="model_lesson10.Role" />
         <mapping class="model_lesson10.User" />
         <mapping class="model_lesson10.Order" />
-        <mapping class="model_lesson10.Product_Category" />
+        <mapping class="model_lesson10.ProductCategory" />
         <mapping class="model_lesson10.Product" />
         <!--<mapping class="annotation.User" />-->
         <!--<mapping class="annotation.Role" />-->

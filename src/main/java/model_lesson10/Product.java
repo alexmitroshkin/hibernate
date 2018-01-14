@@ -18,9 +18,9 @@ public class Product extends Model{
     private String description;
     @Column(name = "price")
     private BigDecimal price;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "product_category_id", referencedColumnName = "id")
-    private Product_Category  productCategory;
+    private ProductCategory  productCategory;
 
 
     public Product() {
@@ -50,11 +50,21 @@ public class Product extends Model{
         this.price = price;
     }
 
-    public Product_Category getProductCategory() {
+    public ProductCategory getProductCategory() {
         return productCategory;
     }
 
-    public void setProductCategory(Product_Category productCategory) {
+    public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", productCategory=" + productCategory +
+                '}';
     }
 }
